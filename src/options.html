@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>What a Sound</title>
+  <style>
+    body {
+      width: 320px;
+      padding: 15px;
+      font-family: monospace;
+      background-color: #f0f0f0;
+      color: #000;
+      margin: 0;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid black;
+    }
+
+    h1 {
+      font-size: 18px;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .card {
+      background: white;
+      border: 2px solid black;
+      box-shadow: 3px 3px 0px black;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .setting-group {
+      margin-bottom: 15px;
+    }
+
+    .setting-group:last-child {
+      margin-bottom: 0;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    select {
+      width: 100%;
+      padding: 8px;
+      border: 2px solid black;
+      border-radius: 0;
+      font-size: 14px;
+      font-family: monospace;
+      font-weight: bold;
+      background-color: #fff9c4;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .toggle-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .toggle-container label {
+      margin-bottom: 0;
+    }
+
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      border: 2px solid black;
+      cursor: pointer;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #ff5252;
+      color: white;
+      border: 2px solid black;
+      box-shadow: 3px 3px 0px black;
+      font-family: monospace;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    button:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px black;
+    }
+
+    button:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0px black;
+    }
+
+    #status {
+      color: #000;
+      font-size: 12px;
+      font-weight: bold;
+      margin-top: 15px;
+      text-align: center;
+      min-height: 15px;
+      text-transform: uppercase;
+    }
+
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 10px;
+      border-top: 3px solid black;
+      padding-top: 15px;
+    }
+
+    .file-note {
+      font-size: 10px;
+      font-weight: bold;
+      color: #000;
+      background: #fff9c4;
+      border: 2px solid black;
+      padding: 8px;
+      margin-bottom: 15px;
+    }
+
+    .kofi-link {
+      display: inline-block;
+      text-decoration: none;
+      color: #000;
+      background: #ff5252;
+      /* Ko-fi red-ish but brighter */
+      color: white;
+      padding: 5px 10px;
+      border: 2px solid black;
+      box-shadow: 2px 2px 0px black;
+      font-weight: bold;
+      font-size: 10px;
+      transition: transform 0.1s;
+    }
+
+    .kofi-link:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px black;
+    }
+
+    .kofi-link:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0px black;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header-container">
+    <h1>What a Sound !?</h1>
+  </div>
+
+  <div class="card">
+    <div class="toggle-container">
+      <label for="enable-extension">Enable Sounds</label>
+      <input type="checkbox" id="enable-extension" checked>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="setting-group">
+      <label for="sound-copy">Ctrl+C (Copy)</label>
+      <select id="sound-copy">
+        <option value="akh.mp3">Akh</option>
+        <option value="faaah.mp3">Faaah</option>
+        <option value="gey-echo.mp3">Gey Echo</option>
+        <option value="perfect-fart.mp3">Perfect Fart</option>
+        <option value="vine-boom.mp3">Vine Boom</option>
+        <option value="none">None</option>
+      </select>
+    </div>
+
+    <div class="setting-group">
+      <label for="sound-paste">Ctrl+V (Paste)</label>
+      <select id="sound-paste">
+        <option value="gey-echo.mp3">Gey Echo</option>
+        <option value="akh.mp3">Akh</option>
+        <option value="faaah.mp3">Faaah</option>
+        <option value="perfect-fart.mp3">Perfect Fart</option>
+        <option value="vine-boom.mp3">Vine Boom</option>
+        <option value="none">None</option>
+      </select>
+    </div>
+
+    <div class="setting-group">
+      <label for="sound-selection">Text Selection</label>
+      <select id="sound-selection">
+        <option value="faaah.mp3">Faaah</option>
+        <option value="akh.mp3">Akh</option>
+        <option value="gey-echo.mp3">Gey Echo</option>
+        <option value="perfect-fart.mp3">Perfect Fart</option>
+        <option value="vine-boom.mp3">Vine Boom</option>
+        <option value="none">None</option>
+      </select>
+    </div>
+  </div>
+
+  <button id="save-btn">Save Settings</button>
+  <div id="status"></div>
+
+  <footer>
+    <span class="credit-text">Made with ❤️ by <a href="https://github.com/ayogatot" target="_blank"
+        class="credit-name">@ayogatot</a></span>
+    <a href="https://ko-fi.com/ayogatot" target="_blank" class="kofi-link">
+      ☕ Buy me a coffee
+    </a>
+  </footer>
+
+  <script src="options.js"></script>
+</body>
+
+</html>
