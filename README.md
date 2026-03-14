@@ -1,4 +1,5 @@
 <div align="center">
+  <img src="icons/icon128.png" alt="What a Sound Logo" width="100" />
   <h1>What a Sound !?</h1>
   <p>Meme sound effects for your daily web interactions</p>
 </div>
