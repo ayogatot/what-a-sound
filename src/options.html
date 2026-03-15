@@ -17,7 +17,7 @@
     .header-container {
       display: flex;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 8px;
       padding-bottom: 10px;
       border-bottom: 3px solid black;
     }
@@ -112,14 +112,14 @@
       color: #000;
       font-size: 12px;
       font-weight: bold;
-      margin-top: 15px;
+      margin-top: 2px;
       text-align: center;
       min-height: 15px;
       text-transform: uppercase;
     }
 
     footer {
-      margin-top: 20px;
+      margin-top: 2px;
       text-align: center;
       font-size: 10px;
       border-top: 3px solid black;
@@ -170,7 +170,7 @@
     <h1>What a Sound !?</h1>
   </div>
 
-  <div class="card">
+  <div class="card" style="margin-top: 6px;">
     <div class="toggle-container">
       <label for="enable-extension">Enable Sounds</label>
       <input type="checkbox" id="enable-extension" checked>
@@ -213,6 +213,12 @@
         <option value="none">None</option>
       </select>
     </div>
+  </div>
+
+  <div class="card" style="text-align: center; font-size: 14px; padding: 6px; margin-bottom: 6px;">
+    <strong>Missing your favorite sound?</strong><br>
+    <a href="https://github.com/ayogatot/what-a-sound/issues" target="_blank"
+      style="color: #ff5252; text-decoration: underline; display: inline-block; margin-top: 5px;">Ping me here!</a>
   </div>
 
   <button id="save-btn">Save Settings</button>

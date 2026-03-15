@@ -40,6 +40,9 @@
 
 If you find this extension hilarious or helpful, consider supporting:
 
+### 🗣️ Feedback & Requests
+Want a specific meme sound added? Or maybe a custom trigger for something else? Just [ping me on GitHub](https://github.com/ayogatot/what-a-sound/issues) or open an issue!
+
 ### ☕ Buy Me a Coffee
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20Development-ff5e5b?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/ayogatot)
 
