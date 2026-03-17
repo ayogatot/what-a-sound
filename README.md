@@ -2,6 +2,11 @@
   <img src="icons/icon128.png" alt="What a Sound Logo" width="100" />
   <h1>What a Sound !?</h1>
   <p>Meme sound effects for your daily web interactions</p>
+  <p>
+    <a href="https://chromewebstore.google.com/detail/what-a-sound/epiingchiaonbobnaffbhfcccalfgbbe">
+      <img src="https://img.shields.io/badge/Chrome%20Web%20Store-Available-blue?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Available on Chrome Web Store" />
+    </a>
+  </p>
 </div>
 
 ## Features
