@@ -12,21 +12,94 @@
       background-color: #f0f0f0;
       color: #000;
       margin: 0;
+      box-sizing: border-box;
     }
 
     .header-container {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       margin-bottom: 8px;
       padding-bottom: 10px;
       border-bottom: 3px solid black;
     }
 
+    .header-title {
+      display: flex;
+      align-items: center;
+    }
+
     h1 {
-      font-size: 18px;
+      font-size: 16px;
       margin: 0;
       text-transform: uppercase;
       letter-spacing: 1px;
+    }
+
+    .pro-badge {
+      background: #ffeb3b;
+      color: #000;
+      border: 2px solid black;
+      font-weight: bold;
+      font-size: 10px;
+      padding: 2px 6px;
+      box-shadow: 2px 2px 0px black;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .pro-banner {
+      background: #ffeb3b;
+      border: 2px solid black;
+      box-shadow: 3px 3px 0px black;
+      padding: 10px 12px;
+      margin-top: 10px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    .pro-banner:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px black;
+    }
+
+    .pro-banner-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pro-banner-title {
+      font-weight: bold;
+      font-size: 12px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pro-banner-sub {
+      font-size: 10px;
+      color: #222;
+      margin-top: 2px;
+      font-weight: 500;
+    }
+
+    .pro-banner-btn {
+      background: #ff5252;
+      color: white;
+      border: 2px solid black;
+      box-shadow: 2px 2px 0px black;
+      padding: 5px 10px;
+      font-size: 11px;
+      font-weight: bold;
+      cursor: pointer;
+      width: auto;
+      margin-top: 0;
+      white-space: nowrap;
     }
 
     .card {
@@ -35,6 +108,92 @@
       box-shadow: 3px 3px 0px black;
       padding: 15px;
       margin-bottom: 15px;
+      position: relative;
+    }
+
+    /* Neubrutalism Modal Styles */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      box-sizing: border-box;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: #fff8e1;
+      border: 3px solid black;
+      box-shadow: 5px 5px 0px black;
+      padding: 16px;
+      width: 100%;
+      position: relative;
+      box-sizing: border-box;
+      animation: modalPop 0.15s ease-out;
+    }
+
+    @keyframes modalPop {
+      from {
+        transform: scale(0.92);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #ff5252;
+      color: white;
+      border: 2px solid black;
+      box-shadow: 2px 2px 0px black;
+      width: 24px;
+      height: 24px;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+    }
+
+    .modal-close-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px black;
+    }
+
+    .modal-content h2 {
+      font-size: 14px;
+      margin: 0 0 10px 0;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-right: 25px;
+    }
+
+    .pro-features-list {
+      font-size: 11px;
+      padding-left: 18px;
+      margin: 10px 0 15px 0;
+      line-height: 1.6;
     }
 
     .setting-group {
@@ -49,21 +208,23 @@
       display: block;
       font-weight: bold;
       margin-bottom: 8px;
-      font-size: 14px;
+      font-size: 13px;
       text-transform: uppercase;
     }
 
-    select {
+    select,
+    input[type="text"] {
       width: 100%;
       padding: 8px;
       border: 2px solid black;
       border-radius: 0;
-      font-size: 14px;
+      font-size: 13px;
       font-family: monospace;
       font-weight: bold;
       background-color: #fff9c4;
       cursor: pointer;
       outline: none;
+      box-sizing: border-box;
     }
 
     .toggle-container {
@@ -83,6 +244,12 @@
       cursor: pointer;
     }
 
+    input[type="range"] {
+      width: 100%;
+      accent-color: #ff5252;
+      cursor: pointer;
+    }
+
     button {
       width: 100%;
       padding: 12px;
@@ -91,7 +258,7 @@
       border: 2px solid black;
       box-shadow: 3px 3px 0px black;
       font-family: monospace;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: bold;
       cursor: pointer;
       margin-top: 10px;
@@ -108,46 +275,145 @@
       box-shadow: 1px 1px 0px black;
     }
 
+    .pro-upgrade-btn {
+      background: #00e676;
+      color: black;
+      margin-top: 6px;
+    }
+
+    .secondary-btn {
+      background: #ffffff;
+      color: black;
+      padding: 8px;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+
+    .lock-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(2px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+      padding: 6px 10px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .lock-badge-icon {
+      font-size: 14px;
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+
+    .lock-overlay p {
+      font-size: 10px;
+      font-weight: 800;
+      margin: 2px 0 6px 0;
+      color: #000;
+      letter-spacing: 0.3px;
+      line-height: 1.2;
+    }
+
+    .unlock-pro-btn-sm {
+      background: #00e676;
+      color: black;
+      border: 2px solid black;
+      box-shadow: 2px 2px 0px black;
+      font-family: monospace;
+      font-size: 10px;
+      font-weight: bold;
+      padding: 4px 10px;
+      width: auto;
+      margin-top: 0;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    .unlock-pro-btn-sm:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px black;
+    }
+
+    .unlock-pro-btn-sm:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0px black;
+    }
+
+    .custom-file-input {
+      display: none;
+    }
+
+    .file-upload-btn {
+      display: block;
+      text-align: center;
+      background: #e0f7fa;
+      color: black;
+      border: 2px solid black;
+      box-shadow: 2px 2px 0px black;
+      padding: 8px;
+      font-weight: bold;
+      font-size: 12px;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    .file-upload-btn:hover {
+      background: #b2ebf2;
+    }
+
+    #uploaded-sounds-list {
+      margin-top: 10px;
+      font-size: 11px;
+    }
+
+    .sound-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f5f5f5;
+      border: 1px solid black;
+      padding: 4px 8px;
+      margin-top: 4px;
+    }
+
     #status {
       color: #000;
       font-size: 12px;
       font-weight: bold;
-      margin-top: 2px;
+      margin-top: 4px;
       text-align: center;
       min-height: 15px;
       text-transform: uppercase;
     }
 
     footer {
-      margin-top: 2px;
+      margin-top: 8px;
       text-align: center;
       font-size: 10px;
       border-top: 3px solid black;
-      padding-top: 15px;
-    }
-
-    .file-note {
-      font-size: 10px;
-      font-weight: bold;
-      color: #000;
-      background: #fff9c4;
-      border: 2px solid black;
-      padding: 8px;
-      margin-bottom: 15px;
+      padding-top: 12px;
     }
 
     .kofi-link {
       display: inline-block;
       text-decoration: none;
-      color: #000;
       background: #ff5252;
-      /* Ko-fi red-ish but brighter */
       color: white;
       padding: 5px 10px;
       border: 2px solid black;
       box-shadow: 2px 2px 0px black;
       font-weight: bold;
       font-size: 10px;
+      margin-top: 6px;
       transition: transform 0.1s;
     }
 
@@ -155,21 +421,30 @@
       transform: translate(-1px, -1px);
       box-shadow: 3px 3px 0px black;
     }
-
-    .kofi-link:active {
-      transform: translate(1px, 1px);
-      box-shadow: 1px 1px 0px black;
-    }
   </style>
 </head>
 
 <body>
 
+  <!-- Header -->
   <div class="header-container">
-    <img src="../icons/icon128.png" alt="Logo" width="32" style="margin-right: 15px;" />
-    <h1>What a Sound !?</h1>
+    <div class="header-title">
+      <img src="../icons/icon128.png" alt="Logo" width="28" style="margin-right: 10px;" />
+      <h1>What a Sound</h1>
+    </div>
+    <span class="pro-badge" id="user-tier-badge" title="Click to view PRO features">FREE</span>
   </div>
 
+  <!-- PRO Promo Banner -->
+  <div class="pro-banner unlock-pro-trigger" id="pro-banner">
+    <div class="pro-banner-content">
+      <div class="pro-banner-title">⚡ UNLOCK PRO ACCESS</div>
+      <div class="pro-banner-sub">Custom Audio • Custom Hotkeys • Volume</div>
+    </div>
+    <button class="pro-banner-btn">UPGRADE</button>
+  </div>
+
+  <!-- Global Enable Toggle -->
   <div class="card" style="margin-top: 6px;">
     <div class="toggle-container">
       <label for="enable-extension">Enable Sounds</label>
@@ -177,10 +452,11 @@
     </div>
   </div>
 
+  <!-- Default Sound Triggers Card -->
   <div class="card">
     <div class="setting-group">
       <label for="sound-copy">Ctrl+C (Copy)</label>
-      <select id="sound-copy">
+      <select id="sound-copy" class="sound-select">
         <option value="akh.mp3">Akh</option>
         <option value="faaah.mp3">Faaah</option>
         <option value="gey-echo.mp3">Gey Echo</option>
@@ -192,7 +468,7 @@
 
     <div class="setting-group">
       <label for="sound-paste">Ctrl+V (Paste)</label>
-      <select id="sound-paste">
+      <select id="sound-paste" class="sound-select">
         <option value="gey-echo.mp3">Gey Echo</option>
         <option value="akh.mp3">Akh</option>
         <option value="faaah.mp3">Faaah</option>
@@ -204,7 +480,7 @@
 
     <div class="setting-group">
       <label for="sound-selection">Text Selection</label>
-      <select id="sound-selection">
+      <select id="sound-selection" class="sound-select">
         <option value="faaah.mp3">Faaah</option>
         <option value="akh.mp3">Akh</option>
         <option value="gey-echo.mp3">Gey Echo</option>
@@ -215,18 +491,124 @@
     </div>
   </div>
 
-  <div class="card" style="text-align: center; font-size: 14px; padding: 6px; margin-bottom: 6px;">
+  <!-- PRO Feature Preview: Custom Hotkeys -->
+  <div class="card" id="extra-triggers-card">
+    <!-- Lock Overlay for Free Users -->
+    <div class="lock-overlay" id="extra-triggers-lock">
+      <span class="lock-badge-icon">🔒</span>
+      <p>CUSTOM HOTKEYS ARE A PRO FEATURE</p>
+      <button class="unlock-pro-btn-sm unlock-pro-trigger">UNLOCK PRO</button>
+    </div>
+
+    <label style="margin-bottom: 12px; border-bottom: 2px solid black; padding-bottom: 4px;">⌨️ Custom Hotkey
+      Shortcuts</label>
+
+    <!-- Custom Key Combination Creator -->
+    <div>
+      <label>⚡ Create Custom Shortcut</label>
+      <input type="text" id="hotkey-recorder" placeholder="Click & press key (e.g. CTRL+U)" readonly
+        style="background: #e0f7fa; text-align: center; margin-bottom: 8px;">
+
+      <label for="hotkey-sound-picker">Assign Sound</label>
+      <select id="hotkey-sound-picker" class="sound-select" style="margin-bottom: 8px;"></select>
+
+      <button id="add-hotkey-btn"
+        style="background: #ffeb3b; color: black; padding: 8px; font-size: 12px; margin-top: 0;">+ Add Custom
+        Shortcut</button>
+
+      <div id="custom-hotkeys-list" style="margin-top: 10px;">
+        <!-- Custom hotkey rules list dynamically rendered -->
+      </div>
+    </div>
+  </div>
+
+  <!-- PRO Feature Preview: Custom Sound Upload -->
+  <div class="card" id="custom-sound-card">
+    <!-- Lock Overlay for Free Users -->
+    <div class="lock-overlay" id="custom-sound-lock">
+      <span class="lock-badge-icon">🔒</span>
+      <p>CUSTOM AUDIO UPLOAD IS A PRO FEATURE</p>
+      <button class="unlock-pro-btn-sm unlock-pro-trigger" id="unlock-custom-btn">UNLOCK PRO</button>
+    </div>
+
+    <label>📁 Custom Sound Upload</label>
+    <label for="custom-audio-file" class="file-upload-btn">Choose Audio File (.mp3, .wav)</label>
+    <input type="file" id="custom-audio-file" class="custom-file-input" accept="audio/mp3, audio/wav, audio/mpeg">
+
+    <div id="uploaded-sounds-list">
+      <!-- Uploaded sounds dynamically listed here -->
+    </div>
+  </div>
+
+  <!-- PRO Feature Preview: Sound Controls -->
+  <div class="card" id="volume-card">
+    <!-- Lock Overlay for Free Users -->
+    <div class="lock-overlay" id="volume-lock">
+      <span class="lock-badge-icon">🔒</span>
+      <p>VOLUME SLIDER IS A PRO FEATURE</p>
+      <button class="unlock-pro-btn-sm unlock-pro-trigger">UNLOCK PRO</button>
+    </div>
+
+    <div class="setting-group">
+      <label for="sound-volume">🔊 Volume: <span id="volume-value">100%</span></label>
+      <input type="range" id="sound-volume" min="0" max="100" value="100">
+    </div>
+  </div>
+
+  <!-- <div class="card" style="text-align: center; font-size: 12px; padding: 8px; margin-bottom: 6px;">
     <strong>Missing your favorite sound?</strong><br>
     <a href="https://github.com/ayogatot/what-a-sound/issues" target="_blank"
       style="color: #ff5252; text-decoration: underline; display: inline-block; margin-top: 5px;">Ping me here!</a>
-  </div>
+  </div> -->
 
   <button id="save-btn">Save Settings</button>
   <div id="status"></div>
 
+  <!-- Neubrutalism PRO Upgrade Modal -->
+  <div class="modal-overlay" id="pro-modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close-btn" id="close-modal-btn">✖</button>
+      <h2>⚡ UNLOCK PRO FEATURES <span class="pro-badge">PRO</span></h2>
+      <ul class="pro-features-list">
+        <li>📁 Upload & use your own custom MP3/WAV sound files</li>
+        <li>🔊 Adjustable Sound Volume slider control</li>
+        <li>⌨️ Create unlimited Custom Shortcuts (e.g. CTRL+X, ENTER, CTRL+U, ALT+S)</li>
+      </ul>
+
+      <!-- Paid Active Container -->
+      <div id="pro-active-msg"
+        style="display: none; text-align: center; background: #00e676; padding: 10px; border: 2px solid black; margin-top: 10px;">
+        <strong style="display: block; font-size: 12px; text-transform: uppercase;">✨ PRO MEMBER ACTIVE</strong>
+        <span id="active-license-key"
+          style="font-size: 10px; font-family: monospace; display: block; margin-top: 4px;"></span>
+        <button id="deactivate-key-btn"
+          style="background: #ffffff; color: black; padding: 4px 8px; font-size: 10px; margin-top: 8px; width: auto;">Deactivate
+          Key</button>
+      </div>
+
+      <!-- Unpaid Purchase Container -->
+      <div id="pro-buy-container">
+        <button id="upgrade-pro-btn" class="pro-upgrade-btn">GET PRO LIFETIME ($2.99)</button>
+        <div style="text-align: center; font-size: 9px; font-weight: bold; margin-top: 4px; color: #555;">⚡ PAY ONCE,
+          OWN FOREVER (NO SUBSCRIPTION)</div>
+
+        <div style="margin-top: 12px; border-top: 2px dashed black; padding-top: 10px;">
+          <label for="license-key-input" style="font-size: 11px; margin-bottom: 4px;">🔑 Already have a License
+            Key?</label>
+          <input type="text" id="license-key-input" placeholder="Paste Gumroad License Key"
+            style="text-align: center; margin-bottom: 6px; font-size: 11px; background: #fff9c4;">
+          <button id="verify-license-btn"
+            style="background: #00e676; color: black; padding: 8px; font-size: 12px; margin-top: 0;">VERIFY LICENSE
+            KEY</button>
+          <div id="modal-status" style="margin-top: 8px; font-size: 11px; font-weight: bold; text-align: center; display: none;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <span class="credit-text">Made with ❤️ by <a href="https://github.com/ayogatot" target="_blank"
-        class="credit-name">@ayogatot</a></span>
+        style="color: black; font-weight: bold;">@ayogatot</a></span><br>
     <a href="https://ko-fi.com/ayogatot" target="_blank" class="kofi-link">
       ☕ Buy me a coffee
     </a>
